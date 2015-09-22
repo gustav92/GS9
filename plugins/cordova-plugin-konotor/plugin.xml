@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+        id="cordova-plugin-konotor" version="1.0.0">
+    <name>KonotorPhonegapPlugin</name>
+    <description>This plugin allows Konotor SDK to be integrated with cordova/phonegap applications</description>
+    <keywords>phonegap, cordova, konotor</keywords>
+
+    <preference name="APP_ID" />
+    <preference name="APP_KEY" />
+    <engines>
+        <engine name="cordova" version=">=3.0.0" />
+    </engines>
+    <js-module src="www/konotor.js" name="konotor">
+        <clobbers target="konotor" />
+    </js-module>
+    <!-- android -->
+    <platform name="android">
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="KonotorPhoneGap">
+                <param name="android-package" value="com.demach.konotor.KonotorPhoneGap"/>
+            </feature>
+        </config-file>
+        <config-file target="AndroidManifest.xml" parent="/manifest">
+            <uses-permission android:name="android.permission.INTERNET" />
+            <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+            <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+            <uses-permission android:name="android.permission.RECORD_AUDIO" />
+            <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+            <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+            <uses-permission android:name="android.permission.WAKE_LOCK" />
+            <uses-permission android:name=".permission.C2D_MESSAGE" />
+            <permission android:name=".permission.C2D_MESSAGE" android:protectionLevel="signature" />
+        </config-file>
+        <source-file src="src/android/res/values/konotor.xml" target-dir="res/values/" />
+        <config-file target="res/values/konotor.xml" parent="/*">
+            <string name="KONOTOR_APP_KEY">$APP_KEY</string>
+            <string name="KONOTOR_APP_ID">$APP_ID</string>
+        </config-file>
+        <source-file src="src/android/KonotorPhoneGap.java" target-dir="src/com/demach/konotor" />
+        <framework src="src/android/KonotorActivity/" custom="true" />
+        <config-file target="AndroidManifest.xml" parent="/manifest/application">
+            <activity android:name="com.demach.konotor.KonotorFeedbackActivity"
+            android:screenOrientation="portrait"
+            ></activity>
+           <activity android:name="com.demach.konotor.KonotorPhotoViewActivity"
+            android:screenOrientation="portrait"
+            ></activity>
+           <service android:name="com.demach.konotor.service.KonotorService"></service>
+           <service android:name="com.demach.konotor.service.KonotorBacklogService"></service>
+           <receiver android:name="com.demach.konotor.KonotorAlarmReceiver"></receiver>
+           <receiver android:name="com.demach.konotor.NetworkStateReceiver">
+           <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+           </intent-filter>
+           </receiver>
+           <receiver android:name="com.demach.konotor.CordovaGCMBroadcastReceiver" android:permission="com.google.android.c2dm.permission.SEND" >
+           <intent-filter>
+               <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+               <action android:name="com.google.android.c2dm.intent.REGISTRATION" />
+               <category android:name="$PACKAGE_NAME" />
+           </intent-filter>
+           </receiver>
+           <service android:name="com.demach.konotor.GCMIntentService" />
+        </config-file>
+        <source-file src="src/android/com/demach/konotor/GCMIntentService.java" target-dir="src/com/demach/konotor" />
+        <source-file src="src/android/com/demach/konotor/CordovaGCMBroadcastReceiver.java" target-dir="src/com/demach/konotor" />
+     </platform>
+
+     <!-- ios -->
+     <platform name="ios">
+        <framework src="Foundation.framework" />
+        <framework src="UIKit.framework" />
+        <framework src="AVFoundation.framework" />
+        <framework src="CoreGraphics.framework" />
+        <framework src="AudioToolbox.framework" />
+        <framework src="CoreMedia.framework" />
+        <framework src="CoreData.framework" />
+        <framework src="ImageIO.framework" />
+        <framework src="QuartzCore.framework" />
+
+        <config-file target="config.xml" parent="/*">
+            <feature name="KonotorPhoneGap">
+                <param name="ios-package" value="KonotorPhoneGap"/>
+            </feature>
+        </config-file>
+
+        <resource-file src="src/ios/Konotor/KonotorModels.bundle"/>
+
+        <source-file src="src/ios/Konotor/libKonotorCombined.a" framework="true"/>
+
+        <resource-file src="src/ios/Konotor/KonotorInterfaceFiles/KonotorImageResources/konotor_back.png" />
+        <resource-file src="src/ios/Konotor/KonotorInterfaceFiles/KonotorImageResources/konotor_back@2x.png" />
+        <resource-file src="src/ios/Konotor/KonotorInterfaceFiles/KonotorImageResources/konotor_cam.png" />
+        <resource-file src="src/ios/Konotor/KonotorInterfaceFiles/KonotorImageResources/konotor_cam@2x.png" />
+        <resource-file src="src/ios/Konotor/KonotorInterfaceFiles/KonotorImageResources/konotor_cancel.png" />
+        <resource-file src="src/ios/Konotor/KonotorInterfaceFiles/KonotorImageResources/konotor_cancel@2x.png" />
+        <resource-file src="src/ios/Konotor/KonotorInterfaceFiles/KonotorImageResources/konotor_chatbubble_ios7_other.png" />
+        <resource-file src="src/ios/Konotor/KonotorInterfaceFiles/KonotorImageResources/konotor_chatbubble_ios7_other@2x.png" />
+        <resource-file src="src/ios/Konotor/KonotorInterfaceFiles/KonotorImageResources/konotor_chatbubble_ios7_you.png" />
+        <resource-file src="src/ios/Konotor/KonotorInterfaceFiles/KonotorImageResources/konotor_chatbubble_ios7_you@2x.png" />
+        <resource-file src="src/ios/Konotor/KonotorInterfaceFiles/KonotorImageResources/konotor_cross.png" />
+        <resource-file src="src/ios/Konotor/KonotorInterfaceFiles/KonotorImageResources/konotor_cross@2x.png" />
+        <resource-file src="src/ios/Konotor/KonotorInterfaceFiles/KonotorImageResources/konotor_mic.png" />
+        <resource-file src="src/ios/Konotor/KonotorInterfaceFiles/KonotorImageResources/konotor_mic@2x.png" />
+        <resource-file src="src/ios/Konotor/KonotorInterfaceFiles/KonotorImageResources/konotor_placeholder.png" />
+        <resource-file src="src/ios/Konotor/KonotorInterfaceFiles/KonotorImageResources/konotor_placeholder@2x.png" />
+        <resource-file src="src/ios/Konotor/KonotorInterfaceFiles/KonotorImageResources/konotor_play.png" />
+        <resource-file src="src/ios/Konotor/KonotorInterfaceFiles/KonotorImageResources/konotor_play@2x.png" />
+        <resource-file src="src/ios/Konotor/KonotorInterfaceFiles/KonotorImageResources/konotor_profile.png" />
+        <resource-file src="src/ios/Konotor/KonotorInterfaceFiles/KonotorImageResources/konotor_profile@2x.png" />
+        <resource-file src="src/ios/Konotor/KonotorInterfaceFiles/KonotorImageResources/konotor_progress_black.png" />
+        <resource-file src="src/ios/Konotor/KonotorInterfaceFiles/KonotorImageResources/konotor_progress_black@2x.png" />
+        <resource-file src="src/ios/Konotor/KonotorInterfaceFiles/KonotorImageResources/konotor_progress_blue.png" />
+        <resource-file src="src/ios/Konotor/KonotorInterfaceFiles/KonotorImageResources/konotor_progress_blue@2x.png" />
+        <resource-file src="src/ios/Konotor/KonotorInterfaceFiles/KonotorImageResources/konotor_sent.png" />
+        <resource-file src="src/ios/Konotor/KonotorInterfaceFiles/KonotorImageResources/konotor_sent@2x.png" />
+        <resource-file src="src/ios/Konotor/KonotorInterfaceFiles/KonotorImageResources/konotor_share.png" />
+        <resource-file src="src/ios/Konotor/KonotorInterfaceFiles/KonotorImageResources/konotor_share@2x.png" />
+        <resource-file src="src/ios/Konotor/KonotorInterfaceFiles/KonotorImageResources/konotor_stop.png" />
+        <resource-file src="src/ios/Konotor/KonotorInterfaceFiles/KonotorImageResources/konotor_stop@2x.png" />
+        <resource-file src="src/ios/Konotor/KonotorInterfaceFiles/KonotorImageResources/konotor_supportprofile.png" />
+        <resource-file src="src/ios/Konotor/KonotorInterfaceFiles/KonotorImageResources/konotor_supportprofile@2x.png" />
+        <resource-file src="src/ios/Konotor/KonotorInterfaceFiles/KonotorImageResources/konotor_uploading.png" />
+        <resource-file src="src/ios/Konotor/KonotorInterfaceFiles/KonotorImageResources/konotor_uploading@2x.png" />
+
+
+        <resource-file src="src/ios/Konotor/KonotorInterfaceFiles/KonotorConversationViewController.xib" />
+        <resource-file src="src/ios/Konotor/KonotorInterfaceFiles/KonotorFeedbackScreenViewController.xib" />
+
+        <header-file src="src/ios/Konotor/include/Konotor/Konotor.h" />
+        <header-file src="src/ios/Konotor/KonotorInterfaceFiles/KonotorUI.h" />
+
+        <header-file src="src/ios/AppDelegate+KonotorPhoneGap.h" />
+        <source-file src="src/ios/AppDelegate+KonotorPhoneGap.m" />
+
+        <header-file src="src/ios/KonotorPhoneGap.h" />
+        <source-file src="src/ios/KonotorPhoneGap.m" />
+
+        <header-file src="src/ios/Konotor/KonotorInterfaceFiles/KonotorConversationViewController.h" />
+        <source-file src="src/ios/Konotor/KonotorInterfaceFiles/KonotorConversationViewController.m" />
+
+        <header-file src="src/ios/Konotor/KonotorInterfaceFiles/KonotorEventHandler.h" />
+        <source-file src="src/ios/Konotor/KonotorInterfaceFiles/KonotorEventHandler.m" />
+
+        <header-file src="src/ios/Konotor/KonotorInterfaceFiles/KonotorFeedbackScreen.h" />
+        <source-file src="src/ios/Konotor/KonotorInterfaceFiles/KonotorFeedbackScreen.m" />
+
+        <header-file src="src/ios/Konotor/KonotorInterfaceFiles/KonotorFeedbackScreenViewController.h" />
+        <source-file src="src/ios/Konotor/KonotorInterfaceFiles/KonotorFeedbackScreenViewController.m" />
+
+        <header-file src="src/ios/Konotor/KonotorInterfaceFiles/KonotorImageInput.h" />
+        <source-file src="src/ios/Konotor/KonotorInterfaceFiles/KonotorImageInput.m" />
+
+        <header-file src="src/ios/Konotor/KonotorInterfaceFiles/KonotorImageView.h" />
+        <source-file src="src/ios/Konotor/KonotorInterfaceFiles/KonotorImageView.m" />
+
+        <header-file src="src/ios/Konotor/KonotorInterfaceFiles/KonotorMediaUIButton.h" />
+        <source-file src="src/ios/Konotor/KonotorInterfaceFiles/KonotorMediaUIButton.m" />
+
+        <header-file src="src/ios/Konotor/KonotorInterfaceFiles/KonotorTextInputOverlay.h" />
+        <source-file src="src/ios/Konotor/KonotorInterfaceFiles/KonotorTextInputOverlay.m" />
+
+        <header-file src="src/ios/Konotor/KonotorInterfaceFiles/KonotorUITextView.h" />
+        <source-file src="src/ios/Konotor/KonotorInterfaceFiles/KonotorUITextView.m" />
+
+        <header-file src="src/ios/Konotor/KonotorInterfaceFiles/KonotorUtility.h" />
+        <source-file src="src/ios/Konotor/KonotorInterfaceFiles/KonotorUtility.m" />
+
+        <header-file src="src/ios/Konotor/KonotorInterfaceFiles/KonotorVoiceInputOverlay.h" />
+        <source-file src="src/ios/Konotor/KonotorInterfaceFiles/KonotorVoiceInputOverlay.m" />
+
+        <config-file target="*-Info.plist" parent="AppId">
+            <string>$APP_ID</string>
+        </config-file>
+
+        <config-file target="*-Info.plist" parent="AppKey">
+            <string>$APP_KEY</string>
+        </config-file>
+    </platform>
+
+    <info>
+        Add this script tag to your index.html:
+        &lt;input id="KonotorMenu" type="button" value="Talk To Us" onclick="konotor.launchKonotorScreen();"&gt;&lt;/input&gt;
+        
+        Include the following script to your index.html
+        a) Add onload="onLoad()" to body tag : " &lt;body onload="onLoad()"&gt; "
+        
+        b) &lt;script type="text/javascript" charset="utf-8"&gt;
+            function onLoad() {
+                document.addEventListener("deviceready", onDeviceReady, false);
+            }
+                
+            function onDeviceReady() {
+                konotor.init();
+            }
+            &lt;/script&gt;
+    </info>
+</plugin>

@@ -1,0 +1,287 @@
+{
+    "prepare_queue": {
+        "installed": [],
+        "uninstalled": []
+    },
+    "config_munge": {
+        "files": {
+            "res/xml/config.xml": {
+                "parents": {
+                    "/*": [
+                        {
+                            "xml": "<feature name=\"Whitelist\"><param name=\"android-package\" value=\"org.apache.cordova.whitelist.WhitelistPlugin\" /><param name=\"onload\" value=\"true\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"KonotorPhoneGap\"><param name=\"android-package\" value=\"com.demach.konotor.KonotorPhoneGap\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"Battery\"><param name=\"android-package\" value=\"org.apache.cordova.batterystatus.BatteryListener\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"Camera\"><param name=\"android-package\" value=\"org.apache.cordova.camera.CameraLauncher\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"Contacts\"><param name=\"android-package\" value=\"org.apache.cordova.contacts.ContactManager\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"Device\"><param name=\"android-package\" value=\"org.apache.cordova.device.Device\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"Accelerometer\"><param name=\"android-package\" value=\"org.apache.cordova.devicemotion.AccelListener\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"Compass\"><param name=\"android-package\" value=\"org.apache.cordova.deviceorientation.CompassListener\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"Notification\"><param name=\"android-package\" value=\"org.apache.cordova.dialogs.Notification\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"File\"><param name=\"android-package\" value=\"org.apache.cordova.file.FileUtils\" /><param name=\"onload\" value=\"true\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"FileTransfer\"><param name=\"android-package\" value=\"org.apache.cordova.filetransfer.FileTransfer\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"Globalization\"><param name=\"android-package\" value=\"org.apache.cordova.globalization.Globalization\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"InAppBrowser\"><param name=\"android-package\" value=\"org.apache.cordova.inappbrowser.InAppBrowser\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"Media\"><param name=\"android-package\" value=\"org.apache.cordova.media.AudioHandler\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"Capture\"><param name=\"android-package\" value=\"org.apache.cordova.mediacapture.Capture\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"NetworkStatus\"><param name=\"android-package\" value=\"org.apache.cordova.networkinformation.NetworkManager\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"Vibration\"><param name=\"android-package\" value=\"org.apache.cordova.vibration.Vibration\" /></feature>",
+                            "count": 1
+                        }
+                    ]
+                }
+            },
+            "AndroidManifest.xml": {
+                "parents": {
+                    "/manifest": [
+                        {
+                            "xml": "<uses-permission android:name=\"android.permission.INTERNET\" />",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<uses-permission android:name=\"android.permission.ACCESS_NETWORK_STATE\" />",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<uses-permission android:name=\"android.permission.WRITE_EXTERNAL_STORAGE\" />",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<uses-permission android:name=\"android.permission.RECORD_AUDIO\" />",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<uses-permission android:name=\"com.google.android.c2dm.permission.RECEIVE\" />",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<uses-permission android:name=\"android.permission.GET_ACCOUNTS\" />",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<uses-permission android:name=\"android.permission.WAKE_LOCK\" />",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<uses-permission android:name=\".permission.C2D_MESSAGE\" />",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<permission android:name=\".permission.C2D_MESSAGE\" android:protectionLevel=\"signature\" />",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<uses-permission android:name=\"android.permission.VIBRATE\" />",
+                            "count": 1
+                        }
+                    ],
+                    "/manifest/application": [
+                        {
+                            "xml": "<activity android:name=\"com.demach.konotor.KonotorFeedbackActivity\" android:screenOrientation=\"portrait\" />",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<activity android:name=\"com.demach.konotor.KonotorPhotoViewActivity\" android:screenOrientation=\"portrait\" />",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<service android:name=\"com.demach.konotor.service.KonotorService\" />",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<service android:name=\"com.demach.konotor.service.KonotorBacklogService\" />",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<receiver android:name=\"com.demach.konotor.KonotorAlarmReceiver\" />",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<receiver android:name=\"com.demach.konotor.NetworkStateReceiver\"><intent-filter><action android:name=\"android.net.conn.CONNECTIVITY_CHANGE\" /></intent-filter></receiver>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<receiver android:name=\"com.demach.konotor.CordovaGCMBroadcastReceiver\" android:permission=\"com.google.android.c2dm.permission.SEND\"><intent-filter><action android:name=\"com.google.android.c2dm.intent.RECEIVE\" /><action android:name=\"com.google.android.c2dm.intent.REGISTRATION\" /><category android:name=\"com.getsmarter.vle\" /></intent-filter></receiver>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<service android:name=\"com.demach.konotor.GCMIntentService\" />",
+                            "count": 1
+                        }
+                    ],
+                    "/*": [
+                        {
+                            "xml": "<uses-permission android:name=\"android.permission.WRITE_EXTERNAL_STORAGE\" />",
+                            "count": 5
+                        },
+                        {
+                            "xml": "<uses-permission android:name=\"android.permission.READ_CONTACTS\" />",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<uses-permission android:name=\"android.permission.WRITE_CONTACTS\" />",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<uses-permission android:name=\"android.permission.GET_ACCOUNTS\" />",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<uses-permission android:name=\"android.permission.ACCESS_COARSE_LOCATION\" />",
+                            "count": 2
+                        },
+                        {
+                            "xml": "<uses-permission android:name=\"android.permission.ACCESS_FINE_LOCATION\" />",
+                            "count": 2
+                        },
+                        {
+                            "xml": "<uses-permission android:name=\"android.permission.RECORD_AUDIO\" />",
+                            "count": 2
+                        },
+                        {
+                            "xml": "<uses-permission android:name=\"android.permission.MODIFY_AUDIO_SETTINGS\" />",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<uses-permission android:name=\"android.permission.READ_PHONE_STATE\" />",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<uses-permission android:name=\"android.permission.RECORD_VIDEO\" />",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<uses-permission android:name=\"android.permission.ACCESS_NETWORK_STATE\" />",
+                            "count": 1
+                        }
+                    ]
+                }
+            },
+            "res/values/konotor.xml": {
+                "parents": {
+                    "/*": [
+                        {
+                            "xml": "<string name=\"KONOTOR_APP_KEY\">981c5eb3-180a-47b5-a540-8af49e8f816b</string>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<string name=\"KONOTOR_APP_ID\">39e50124-dd30-403c-bad6-b77b08a128ba</string>",
+                            "count": 1
+                        }
+                    ]
+                }
+            }
+        }
+    },
+    "installed_plugins": {
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "com.getsmarter.vle"
+        },
+        "cordova-plugin-konotor": {
+            "APP_ID": "39e50124-dd30-403c-bad6-b77b08a128ba",
+            "APP_KEY": "981c5eb3-180a-47b5-a540-8af49e8f816b",
+            "PACKAGE_NAME": "com.getsmarter.vle"
+        },
+        "org.apache.cordova.battery-status": {
+            "PACKAGE_NAME": "com.getsmarter.vle"
+        },
+        "org.apache.cordova.camera": {
+            "PACKAGE_NAME": "com.getsmarter.vle"
+        },
+        "org.apache.cordova.console": {
+            "PACKAGE_NAME": "com.getsmarter.vle"
+        },
+        "org.apache.cordova.contacts": {
+            "PACKAGE_NAME": "com.getsmarter.vle"
+        },
+        "org.apache.cordova.device": {
+            "PACKAGE_NAME": "com.getsmarter.vle"
+        },
+        "org.apache.cordova.device-motion": {
+            "PACKAGE_NAME": "com.getsmarter.vle"
+        },
+        "org.apache.cordova.device-orientation": {
+            "PACKAGE_NAME": "com.getsmarter.vle"
+        },
+        "org.apache.cordova.dialogs": {
+            "PACKAGE_NAME": "com.getsmarter.vle"
+        },
+        "org.apache.cordova.file-transfer": {
+            "PACKAGE_NAME": "com.getsmarter.vle"
+        },
+        "org.apache.cordova.geolocation": {
+            "PACKAGE_NAME": "com.getsmarter.vle"
+        },
+        "org.apache.cordova.globalization": {
+            "PACKAGE_NAME": "com.getsmarter.vle"
+        },
+        "org.apache.cordova.inappbrowser": {
+            "PACKAGE_NAME": "com.getsmarter.vle"
+        },
+        "org.apache.cordova.media": {
+            "PACKAGE_NAME": "com.getsmarter.vle"
+        },
+        "org.apache.cordova.media-capture": {
+            "PACKAGE_NAME": "com.getsmarter.vle"
+        },
+        "org.apache.cordova.network-information": {
+            "PACKAGE_NAME": "com.getsmarter.vle"
+        },
+        "org.apache.cordova.vibration": {
+            "PACKAGE_NAME": "com.getsmarter.vle"
+        }
+    },
+    "dependent_plugins": {
+        "org.apache.cordova.file": {
+            "PACKAGE_NAME": "com.getsmarter.vle"
+        }
+    }
+}

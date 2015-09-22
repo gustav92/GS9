@@ -1,0 +1,158 @@
+{
+    "org.apache.cordova.device": {
+        "source": {
+            "type": "registry",
+            "id": "org.apache.cordova.device"
+        },
+        "is_top_level": true,
+        "variables": {}
+    },
+    "org.apache.cordova.network-information": {
+        "source": {
+            "type": "registry",
+            "id": "org.apache.cordova.network-information"
+        },
+        "is_top_level": true,
+        "variables": {}
+    },
+    "org.apache.cordova.battery-status": {
+        "source": {
+            "type": "registry",
+            "id": "org.apache.cordova.battery-status"
+        },
+        "is_top_level": true,
+        "variables": {}
+    },
+    "org.apache.cordova.device-motion": {
+        "source": {
+            "type": "registry",
+            "id": "org.apache.cordova.device-motion"
+        },
+        "is_top_level": true,
+        "variables": {}
+    },
+    "org.apache.cordova.device-orientation": {
+        "source": {
+            "type": "registry",
+            "id": "org.apache.cordova.device-orientation"
+        },
+        "is_top_level": true,
+        "variables": {}
+    },
+    "org.apache.cordova.geolocation": {
+        "source": {
+            "type": "registry",
+            "id": "org.apache.cordova.geolocation"
+        },
+        "is_top_level": true,
+        "variables": {}
+    },
+    "org.apache.cordova.camera": {
+        "source": {
+            "type": "registry",
+            "id": "org.apache.cordova.camera"
+        },
+        "is_top_level": true,
+        "variables": {}
+    },
+    "org.apache.cordova.media-capture": {
+        "source": {
+            "type": "registry",
+            "id": "org.apache.cordova.media-capture"
+        },
+        "is_top_level": true,
+        "variables": {}
+    },
+    "org.apache.cordova.media": {
+        "source": {
+            "type": "registry",
+            "id": "org.apache.cordova.media"
+        },
+        "is_top_level": true,
+        "variables": {}
+    },
+    "org.apache.cordova.file-transfer": {
+        "source": {
+            "type": "registry",
+            "id": "org.apache.cordova.file-transfer"
+        },
+        "is_top_level": true,
+        "variables": {}
+    },
+    "org.apache.cordova.dialogs": {
+        "source": {
+            "type": "registry",
+            "id": "org.apache.cordova.dialogs"
+        },
+        "is_top_level": true,
+        "variables": {}
+    },
+    "cordova-plugin-konotor": {
+        "source": {
+            "type": "git",
+            "url": "https://github.com/konotor/phonegap-sdk.git",
+            "subdir": "."
+        },
+        "is_top_level": true,
+        "variables": {
+            "APP_ID": "39e50124-dd30-403c-bad6-b77b08a128ba",
+            "APP_KEY": "981c5eb3-180a-47b5-a540-8af49e8f816b"
+        }
+    },
+    "org.apache.cordova.vibration": {
+        "source": {
+            "type": "registry",
+            "id": "org.apache.cordova.vibration"
+        },
+        "is_top_level": true,
+        "variables": {}
+    },
+    "org.apache.cordova.contacts": {
+        "source": {
+            "type": "registry",
+            "id": "org.apache.cordova.contacts"
+        },
+        "is_top_level": true,
+        "variables": {}
+    },
+    "org.apache.cordova.globalization": {
+        "source": {
+            "type": "registry",
+            "id": "org.apache.cordova.globalization"
+        },
+        "is_top_level": true,
+        "variables": {}
+    },
+    "org.apache.cordova.inappbrowser": {
+        "source": {
+            "type": "registry",
+            "id": "org.apache.cordova.inappbrowser"
+        },
+        "is_top_level": true,
+        "variables": {}
+    },
+    "org.apache.cordova.console": {
+        "source": {
+            "type": "registry",
+            "id": "org.apache.cordova.console@latest"
+        },
+        "is_top_level": true,
+        "variables": {}
+    },
+    "cordova-plugin-whitelist": {
+        "source": {
+            "type": "registry",
+            "id": "cordova-plugin-whitelist@1"
+        },
+        "is_top_level": true,
+        "variables": {}
+    },
+    "org.apache.cordova.file": {
+        "source": {
+            "type": "registry",
+            "id": "org.apache.cordova.file"
+        },
+        "is_top_level": false,
+        "variables": {}
+    }
+}

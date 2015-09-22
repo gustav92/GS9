@@ -1,0 +1,32 @@
+{
+  "name": "cordova-plugin-konotor",
+  "version": "1.0.0",
+  "description": "This plugin allows Konotor SDK to be integrated with cordova/phonegap applications",
+  "cordova": {
+    "id": "cordova-plugin-konotor",
+    "platforms": [
+      "android",
+      "ios"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/konotor/phonegap-sdk/"
+  },
+  "keywords": [
+    "phonegap",
+    "cordova",
+    "konotor",
+    "ecosystem:cordova",
+    "cordova-android",
+    "cordova-ios"
+  ],
+  "engines": [
+    {
+      "name": "cordova",
+      "version": ">=3.0.0"
+    }
+  ],
+  "author": "Konotor",
+  "license": "Proprietary"
+}

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/konotor_pic_selection_layout"
+    android:paddingBottom="10dp"
+    android:background="@color/konotor_white" >
+
+    <RelativeLayout
+        android:id="@+id/konotor_pic_top_bar"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:background="@color/konotor_theme_color" >
+
+        <ImageView
+            android:id="@+id/konotor_pic_send_close_bt"
+            android:layout_width="40dp"
+            android:layout_height="32dp"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_margin="6dp"
+            android:src="@drawable/konotor_cancel2x" />
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/konotor_pic_selection_image"
+        android:layout_width="320dp"
+        android:layout_height="match_parent"
+        android:adjustViewBounds="true"
+        android:scaleType="centerInside"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/konotor_pic_top_bar"
+        android:layout_above="@+id/konotor_pic_send"
+        
+        android:src="@drawable/konotor_action_item_selected" />
+
+    <RelativeLayout
+        android:id="@+id/konotor_pic_send"       
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:background="@color/konotor_white"
+        android:layout_marginTop="10dp"
+        >
+
+        <ImageView
+            android:id="@+id/konotor_pic_send_without_voice"
+            android:layout_width="38dp"
+            android:layout_height="38dp"
+       		android:layout_centerHorizontal="true"
+            android:src="@drawable/konotor_send2x" />
+
+       
+  
+        <TextView
+            android:id="@+id/konotor_send_pic_without_voice_lb"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+       		android:layout_centerHorizontal="true"
+            android:layout_below="@+id/konotor_pic_send_without_voice"
+            android:text="@string/konotor_send_message"
+            android:textAppearance="?android:attr/textAppearanceMedium" 
+            android:textColor="@android:color/black"
+            android:visibility="gone"
+            />
+    </RelativeLayout>
+
+</RelativeLayout>

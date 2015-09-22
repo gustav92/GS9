@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1, target-densitydpi=device-dpi, user-scalable=yes">
+<title>GSMobile</title>
+
+<link href="css/camera.css" rel="stylesheet" type="text/css">
+<link href="css/bootstrap.css" rel="stylesheet" type="text/css">
+<link href="css/jquery.mobile-1.4.5.min.css" rel="stylesheet" type="text/css">
+<link href="css/password.css" rel="stylesheet" type="text/css">
+<script src="js/jquery-1.11.2.min.js" type="text/javascript"></script>
+<script src="js/jquery.mobile-1.4.5.min.js" type="text/javascript"></script>
+<script src="js/load.js" type="text/javascript"></script>
+<script src="js/update.js" type="text/javascript"></script>
+<script src="js/enable.js" type="text/javascript"></script>
+<script src="js/camera.js" type="text/javascript"></script>
+<script src="js/settings.js" type="text/javascript"></script>
+<script src="js/grade.js" type="text/javascript"></script>
+<script src="js/phonegap.js" type="text/javascript"></script>
+<script src="js/login.js" type="text/javascript"></script>
+<script src="js/capturejs" type="text/javascript"></script>
+<script src="js/storage.js" type="text/javascript"></script>
+<script type="text/javascript">
+$(function () {
+    $('#name').attr('disabled', 'true'); // mark it as read only
+    $('#name').css("font-weight" , 'bold'); // change the background color
+    $('#surname').attr('disabled', 'true'); // mark it as read only
+    $('#surname').css("font-weight" , 'bold'); // change the background color
+    $('#email1').attr('disabled', 'true'); // mark it as read only
+    $('#email1').css("font-weight" , 'bold'); // change the backgr
+    $('#birth').attr('disabled', 'true'); // mark it as read only
+    $('#birth').css("font-weight" , 'bold'); // change the background color
+    $('#work').attr('disabled', 'true'); // mark it as read only
+    $('#work').css("font-weight" , 'bold'); // change the background color
+    $('#mobile').attr('disabled', 'true'); // mark it as read only
+    $('#mobile').css("font-weight" , 'bold'); // change the background color
+    $('#1').attr('disabled', 'true'); // mark it as read only
+    $('#1').css("font-weight" , 'bold'); // change the background color
+    $('#2').attr('disabled', 'true'); // mark it as read only
+    $('#2').css("font-weight" , 'bold'); // change the background color
+    $('#3').attr('disabled', 'true'); // mark it as read only
+    $('#3').css("font-weight" , 'bold'); // change the background color
+    $('#postc').attr('disabled', 'true'); // mark it as read only
+    $('#postc').css("font-weight" , 'bold'); // change the background color
+    $('#city1').attr('disabled', 'true'); // mark it as read only
+    $('#city1').css("font-weight" , 'bold'); // change the background color
+    $('#country2').attr('disabled', 'true'); // mark it as read only
+    $('#country2').css("font-weight" , 'bold'); // change the background color
+    $('#prov').attr('disabled', 'true'); // mark it as read only
+    $('#prov').css("font-weight" , 'bold'); // change the background color
+  
+/*                + $('#surname').val(item.lastname)
+                + $('#email1').val(item.email)
+                + $('#birth').val(item.customfields[2].value)
+                + $('#work').val(item.customfields[8].value)
+
+*/
+});
+
+    function onLoad() {
+        document.addEventListener("deviceready", onDeviceReady, false);
+        $('#username').val(localStorage.username); 
+        $('#psswd').val(localStorage.password);
+     if (!! localStorage.getItem("username") && localStorage.getItem("password"))
+     {
+      alert("Welcome back " + localStorage.getItem("username"));
+      } 
+      else { 
+        
+        }
+      }
+
+    function onDeviceReady() {
+        konotor.init();
+        var chatname = document.getElementById("fullname12").value;
+        konotor.setIdentifier(chatname); //set unique identifier for user
+        konotor.setUserName("Homer Simpson"); //set name of user
+        konotor.setUserEmail("homer.s@mail.com"); // set email id of user
+        konotor.setWelcomeMessage("Thanks you for trying our app! Let us know your inputs and comments and we will get back to you");
+        konotor.update(); // to update the user properties and metadata to the server
+        alert("finished executing all konotor function calls")
+    };
+    
+
+</script>
+<style type="text/css">
+
+table {
+  border-collapse: separate;
+  border-spacing: 0;
+  color: #4a4a4d;
+  font: 14px/1.4 "Helvetica Neue", Helvetica, Arial, sans-serif; 
+  margin-bottom: 44px;
+  width: 100%;
+}
+table:last-child {
+  margin-bottom: 0;
+}
+th {
+  padding: 10px 15px;
+  border-left: 1px solid #cecfd5;
+  border-top-left-radius: 5px;
+  text-align: left;
+  border-top-right-radius: 5px;
+}
+thead {
+  background: #395870;
+  background: linear-gradient(#49708f, #293f50);
+  color: #fff;
+  font-size: 11px;
+  text-transform: uppercase;
+  padding-right: 45px;
+  text-align: right;
+  width: 20%;
+}
+tbody tr:nth-child(even) {
+  background: #f0f0f2;
+}
+td {
+  border-bottom: 1px solid #cecfd5;
+  border-right: 1px solid #cecfd5;
+  padding: 10px 15px;
+  width: 80%;
+  border-left: 1px solid #cecfd5;
+  vertical-align: middle;
+}
+td:first-child {
+  border-left: 1px solid #cecfd5;
+}
+tfoot {
+  text-align: right;
+}
+tfoot tr:last-child {
+  background: #f0f0f2;
+  color: #395870;
+  font-weight: bold;
+}
+tfoot tr:last-child td:first-child {
+  border-bottom-left-radius: 5px;
+}
+tfoot tr:last-child td:last-child {
+  border-bottom-right-radius: 5px;
+}
+#loginForm { width: 350px;}
+#users { width: 350px; margin: 100px auto;}
+button[type] { margin: 0.5em 0; }
+P {
+	color:#FFF;
+	font-weight:bold;
+}
+#yourimage {
+		width:100%;	
+}
+	
+#swatches {
+		width: 100%;
+		height: 50px;	
+}
+
+.swatch {
+		width:18%;
+		height: 50px;
+		border-style:solid;
+		border-width:thin;	
+		float: left;
+		margin-right: 3px;	
+}
+h1,h3, h4{
+	color:#F0F;
+}
+label {
+	color:#F0F;
+	font-weight:bold;
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 2) {
+.ui-icon-ChatIcon{
+  background:url(images/ChatIcon.png) no-repeat rgba(0, 0, 0, 0.4) !important;
+  background-size: 18px 18px;
+}
+
+.ui-icon-ProgressIcon{
+  background:url(images/ProgressIcon.png)no-repeat rgba(0, 0, 0, 0.4) !important;
+  background-size: 18px 18px;
+}
+
+.ui-icon-UserIcon{
+  background:url(images/UserIcon.png)no-repeat rgba(0, 0, 0, 0.4) !important;
+  background-size: 18px 25px;
+}
+}
+#yourimage{
+  display: block;
+  background: #eaeaed;
+  border: 1px solid #9799a7;
+  float: left;
+  margin: 8px 0 0 20px;
+  padding: 8px;
+  margin-bottom: 22px;
+  max-width: 100%;
+  height: 150px;
+  width: 150px;
+  vertical-align: top;
+} 
+.ui-page {
+  font: 300 16px/22px "Lato", "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+</style>
+<script>
+function togglePassword() {
+	var upass = document.getElementById('psswd');
+	var toggleBtn = document.getElementById('toggleBtn');
+	if(upass.type == "password"){
+		upass.type = "text";
+		toggleBtn.value = "Hide Password Characters";
+	} else {
+		upass.type = "password";
+		toggleBtn.value = "Show Password Characters";
+	}
+}
+</script>
+<script type="text/javascript" src="cordova.js"></script>
+<script src="js/konotor.js" type="text/javascript"></script>
+</head>
+
+<body onLoad="onLoad()">
+<!-- login -->
+<div data-role="page" id="login">
+<div data-role="header" data-position="fixed" data-theme="b">
+<h1><img src="img/logo-getsmarter.png" alt="GetSmarter Login Page" ></h1>
+</div>
+  
+<div data-role="content"> 
+<div align="center">
+<form action="" method="post" id="loginForm">
+<div align="left">
+<label>Username</label>
+</div>
+<input type="text" name="login" id="username" placeholder="Username or Email">
+
+<div align="left">
+        <label >Password</label>
+</div>
+<input type="password" name="password" id="psswd" placeholder="Password" class="showpassword"> 
+<button type="button" id="myButton" data-loading-text="Loading..." class="btn btn-primary" autocomplete="off" onClick="login()" style="background-color:black; color:#F0F">
+  Sign in
+</button>
+<br>
+<label class="checkbox">  
+ <input  type="checkbox" onclick="togglePassword()" value="Show Password Characters">Show Password
+</label>  
+<label>
+<input type="checkbox" name="remember" id="remember" >
+Remember me</label>
+<div align="center">
+<a href="http://vle.getsmarter.co.za/login/forgot_password.php" rel="external" style="color:#F0F;" data-transition="slide">Forgot Password? </a>
+<br>
+<a href="#home" data-transition="slide" style="color:#F0F;">Testing</a>
+</div>
+      
+</form>
+ </div>
+  </div>
+  <div data-role="footer" data-position="fixed" data-tap-toggle="false" data-theme="b">
+      <h4>&copy;Copyright TechTitans 2015</h4>
+  </div>
+</div>
+<!-- home -->
+<div data-role="page" id="home">
+<div data-role="header" data-position="fixed" data-theme="b">
+<label align="center"><div id="fullname12"></div></label>
+<h1></h1>
+</div>
+  
+<div data-role="content">
+
+<div data-role="panel" id="mypanel" data-display="overlay">
+ <!-- panel content goes here -->
+ <ul data-role="listview">
+  <li><a href="#" data-role="external">Postgraute</a></li>
+  <li><a href="#" data-role="external">Programmes</a></li>
+</ul>
+
+</div>
+<!-- /panel -->
+</div>
+  
+<div class="ui-icon-navigation" data-role="navbar">
+<div data-role="footer" data-position="fixed" data-tap-toggle="false" data-theme="b">
+<ul data-native-menu="true">
+li><a href="#mypanel" data-transition="flip"  data-icon="bar" style="color:#F0F;">InAppBrowser</a></li>
+<li><a href="#profile" data-transition="flip"  data-icon="UserIcon" class="ui-icon-user" style="color:#F0F;">Profile</a></li>
+<li><a onclick="konotor.launchKonotorScreen();" data-transition="flip" data-icon="ChatIcon" class="ui-icon-mail" style="color:#F0F;">Messages</a></li>
+<li><a href="#progress" data-transition="flip"  data-icon="location" style="color:#F0F;">Progress</a></li>
+<li><a href="#about" data-transition="flip" data-icon="info" style="color:#F0F;">About</a></li>
+</ul>
+</div>
+</div>
+</div>
+
+<!-- profile -->
+<div data-role="page" id="profile">
+<div data-role="header" data-position="fixed" data-theme="b">
+<a href="#home" data-icon="home" class="ui-icon-nodisc ui-btn-left" id="back1" data-transition="flip">Home</a>
+<a href="#" data-icon="check" class="ui-icon-nodisc ui-btn-left" id="cancel" onclick="cancel()" style="visibility:hidden;">Cancel</a>
+<h1>Profile Manager:</h1>
+<a href="#" data-icon="edit" class="ui-icon-nodisc ui-btn-right " id="enable"  onclick="enable()">Edit</a>
+<a href="#" data-icon="check" class="ui-btn-right" id="save" onclick="Update_user()" style="visibility:hidden;">Save</a>
+</div>
+  
+<div data-role="content">
+<form action="" method="post" id="users">
+<!-- User image -->
+<div class="ui-grid-a">
+<div class="ui-block-a">
+<a href="#myPopup" data-rel="popup" data-position-to="window">
+
+<img src="img/interracial.jpg" id="yourimage" value="" style="width:130px; height:130px;" alt="Userimage" class="img-rounded">
+
+</a>
+</div>
+<div class="ui-block-b">
+<label>Name:</label>
+<input type="text" id="name" style="height:20%; width:60%;" disabled>
+<label>Surname:</label>
+<input type="text" id="surname" style="height:20%; width:60%;" disabled>
+</div>
+</div>
+<div data-role="popup" id="myPopup">
+
+<a href="#myPopup" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a><img src="https:\\/\\/testing.vle.getsmarter.co.za\\/pluginfile.php\\/25392\\/user\\/icon\\/f1" style="width:200px;height:200px;" id="yourimage1" alt="Userimage" class="img-responsive"><input type="file" data-clear-btn="true" value="" style=" width:220px; height:20px;" enabled capture="camera" accept="image/*" id="takePictureField" alt="Userimage">
+<button onclick="app.takePicture();">Take Picture</button>
+<a href="#cameraapp" class="ui-btn ui-camera">Snap</a>
+</div>
+<!-- User image -->
+  <br>
+ 
+  <label>Email:</label>
+  <input type="text" id="email1" disabled>
+<!--   <label>Date of Birth:</label>
+  <input type="text" id="birth" disabled> -->
+  <label>Phone(Mobile):</label>
+  <input type="text" id="mobile" disabled>
+  <label>Phone(Work):</label>
+  <input type="text" id="work" disabled>
+  <label>Adress Line 1:</label>
+  <input type="text" id="1" disabled>
+  <label>Adress Line 2:</label>
+  <input type="text" id="2" disabled>
+  <label>Country (Fullname):</label>
+  <input type="text" id="country2" disabled>  
+  <label>Province:</label>
+  <input type="text" id="prov" disabled>
+  <label>City:</label>
+  <input type="text" id="city1" disabled>
+  <label>Postal Code:</label>
+  <input type="text" id="postc" disabled>
+  <br><br><br>
+  </form>
+  </div>
+  
+<div data-role="footer" data-position="fixed" data-tap-toggle="false" data-theme="b">
+<h4>&copy; Copyright 2015 Techtitans Technical Support</h4>
+</div>
+</div>
+<!-- progress -->
+<div data-role="page" id="progress">
+  <div data-role="header" data-position="fixed" data-tap-toggle="false" data-theme="b">
+<a href="#home" data-icon="home" data-transition="flip" >Home</a>
+    <h1>User Progress:</h1>
+  </div>
+  
+  <div data-role="content">
+ <table data-role="table" id="table-custom-2" class="ui-body-d ui-shadow table-stripe ui-responsive" data-column-btn-theme="b" class="table table-bordered">
+<thead>
+    <tr>
+      <th scope="row">
+        No
+      </th>
+      <th scope="row">
+        Module Description
+      </th>
+      <th scope="row">
+        Grade
+      </th>
+    </tr>
+  </thead>
+
+<tbody>
+
+<tr>
+
+<tr>
+<th>1</th>
+<td><label id="module1Name" style="color:black" ></label></td>
+<td><label id="module1Mark" style="color:black"></label></td>
+</tr>
+
+<tr>
+<th>2</th>
+<td><label id="module2Name" style="color:black" ></label></td>
+<td><label id="module2Mark" style="color:black"></label></td>
+</tr>
+
+<tr>
+<th>3</th>
+<td><label id="module3Name" style="color:black" ></label></td>
+<td><label id="module3Mark" style="color:black"></label></td>
+</tr>
+
+<tr>
+<th>4</th>
+<td><label id="module4Name" style="color:black" ></label></td>
+<td><label id="module4Mark" style="color:black"></label></td>
+</tr>
+
+<tr>
+<th>5</th>
+<td><label id="module5Name" style="color:black" ></label></td>
+<td><label id="module5Mark" style="color:black"></label></td>
+</tr>
+
+<tr>
+<th>6</th>
+<td><label id="module6Name" style="color:black" ></label></td>
+<td><label id="module6Mark" style="color:black"></label></td>
+</tr>
+
+<tr>
+<th>7</th>
+<td><label id="module7Name" style="color:black" ></label></td>
+<td><label id="module7Mark" style="color:black"></label></td>
+</tr>
+
+<tr>
+<th>8</th>
+<td><label id="module8Name" style="color:black" ></label></td>
+<td><label id="module8Mark" style="color:black"></label></td>
+</tr>
+
+<tr>
+<th>9</th>
+<td><label id="module9Name" style="color:black" ></label></td>
+<td><label id="module9Mark" style="color:black"></label></td>
+</tr>
+</tr>
+</tbody>
+<tfoot>
+    <tr class="text-offset">
+      <td colspan="2">Total Grade:</td>
+      <td><div id="answer"></div></td>
+    </tr>
+    <tr class="text-offset">
+      <td colspan="2">Average:</td>
+      <td></td>
+    </tr>
+  </tfoot>
+</table>
+</div>
+<div data-role="footer" data-position="fixed" data-tap-toggle="false" data-theme="b">
+<h4>&copy; Copyright 2015 Techtitans Technical Support</h4>
+</div>
+</div>
+<!-- About -->
+<div data-role="page" id="about">
+
+  <div data-role="header" data-position="fixed" data-tap-toggle="false" data-theme="b">
+<a href="#home" data-icon="home" class="ui-btn-left" data-transition="flip" >Home</a>
+<h1>About</h1>
+</div>
+<div data-role="content">
+<div align="center">   
+<img src="img/getsmarter.png" value="" alt="getsmarter" width="200" height="200" class="img-responsive">
+  
+<div aligin="center" >	
+<a href="https://www.google.co.za/maps/dir/''/google+maps+getsmarter/data=!4m5!4m4!1m0!1m2!1m1!1s0x1dcc5d9f341e929d:0xd5a4f5678f6dd8b9?sa=X&ei=M7NtVbu-OYqsU5_wgcAH&ved=0CIkBEPUXMAw" data-role="button" data-icon="location" data-inline="true" data-theme="b" > Find us on Google Maps </a> 
+</div>
+<label  style="font-style:bold;">Call us</label>
+<br>	
+<a href="tel:+27 (0)21 447 7565" data-icon="tel" class="ui-icon-action" data-role="button" data-inline="true" data-theme="b">+27 (0)21 447 7565</a>
+<p>
+<br>        
+Email us:
+<br>
+To make a general enquiry:
+<br></p>
+<a href="mailto:info@getsmarter.co.za" data-rel="external" style="color:#F0F;">info@getsmarter.co.za</a>
+
+<br>
+<h2>Visit us</h2>
+<p>2nd Floor Deneb House<br>
+   368 c/o Browning and Main Road<br>
+   Observatory<br>
+   Cape Town<br>
+   7925<br>
+   South Africa<br></p>
+</div>
+  <div data-role="footer" data-position="fixed" data-tap-toggle="false" data-theme="b" >
+    <h4>&copy; Copyright 2015 Techtitans Technical Support</h4>
+  </div>
+</div>
+</div>
+</div>
+
+<!-- About -->
+<div data-role="page" id="cameraapp">
+
+  <div data-role="header" data-position="fixed" data-tap-toggle="false" data-theme="b">
+<a href="#home" data-icon="home" class="ui-btn-left" data-transition="flip" >Home</a>
+<h1>Photo</h1>
+</div>
+<div data-role="content">
+
+    <button onclick="capturePhotoWithData();">Capture Photo With Image Data</button> <br>
+    <button onclick="capturePhotoWithFile();">Capture Photo With Image File URI</button> <br>
+    <button onclick="getPhoto(pictureSource.PHOTOLIBRARY);">From Photo Library</button><br>
+    <button onclick="getPhoto(pictureSource.SAVEDPHOTOALBUM);">From Photo Album</button><br>
+    <img style="display:none;width:60px;height:60px;" id="smallImage" src="" />
+    <img style="display:none;" id="largeImage" src="" />
+
+</div>
+  <div data-role="footer" data-position="fixed" data-tap-toggle="false" data-theme="b" >
+    <h4>&copy; Copyright 2015 Techtitans Technical Support</h4>
+  </div>
+</div>
+</div>
+</div>
+<script src="js/bootstrap.js" type="text/javascript"></script>
+        <script type="text/javascript">
+            app.initialize();
+        </script>
+</body>
+</html>
